@@ -12,7 +12,8 @@ function user(state = INITIAL_STATE, action) {
   switch (action.type) {
   case SUBMIT_LOGIN:
     return {
-      user: action.payload,
+      ...state,
+      email: action.payload,
     };
   default:
     return state;

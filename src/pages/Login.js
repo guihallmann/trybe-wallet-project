@@ -22,11 +22,12 @@ class Login extends Component {
     });
   }
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     const { history, dispatchLoginInfo } = this.props;
     const { email } = this.state;
     dispatchLoginInfo(email);
-    history.push('/professionalform');
+    history.push('/carteira');
   }
 
   handleEmailRegex(email) {
@@ -42,23 +43,23 @@ class Login extends Component {
     return (
       <div data-testid="page-login">
         <form>
-          <label htmlFor="email-input">
+          <label htmlFor="email">
             Email:
             <input
               type="text"
-              id="email-input"
-              name="email-input"
+              id="email"
+              name="email"
               data-testid="email-input"
               value={ email }
               onChange={ this.handleChange }
             />
           </label>
-          <label htmlFor="password-input">
+          <label htmlFor="password">
             Senha:
             <input
               type="password"
-              id="password-input"
-              name="password-input"
+              id="password"
+              name="password"
               data-testid="password-input"
               value={ password }
               onChange={ this.handleChange }
