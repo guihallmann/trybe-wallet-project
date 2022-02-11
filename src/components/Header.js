@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   // Função feita com auxílio do Fadiga, Ruy e Petzinger
-
   totalExpenses = () => {
     const { expenses } = this.props;
     let soma = 0;
@@ -15,8 +14,7 @@ class Header extends Component {
   }
 
   render() {
-    const { expenses, email } = this.props;
-    console.log(expenses);
+    const { email } = this.props;
     return (
       <header>
         <section className="header-logo">

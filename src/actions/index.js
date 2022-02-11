@@ -2,6 +2,7 @@
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const GET_CURRENCY = 'GET_CURRENCY';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 
 export const actionSubmitLogin = (payload) => ({
   type: SUBMIT_LOGIN,
@@ -15,6 +16,11 @@ export const getCurrencies = (payload) => ({
 
 export const addExpense = (payload) => ({
   type: ADD_EXPENSE,
+  payload,
+});
+
+export const removeExpense = (payload) => ({
+  type: REMOVE_EXPENSE,
   payload,
 });
 

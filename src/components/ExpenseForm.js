@@ -15,8 +15,6 @@ class ExpenseForm extends react.Component {
       tag: '',
       exchangeRates: {},
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -24,14 +22,14 @@ class ExpenseForm extends react.Component {
     currencies();
   }
 
-  handleChange({ target }) {
+  handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({
       [name]: value,
     });
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
     e.preventDefault();
     const { currenciesList, expense } = this.props;
     const { id, value, description, currency, method, tag } = this.state;
@@ -56,10 +54,9 @@ class ExpenseForm extends react.Component {
   }
 
   render() {
-    const pagamentos = ['Dinheiro', 'Crédito', 'Débito'];
+    const pagamentos = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
     const tags = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
     const { currenciesList } = this.props;
-    console.log(currenciesList);
     const keys = Object.keys(currenciesList).filter((curr) => curr !== 'USDT');
     const { value, description, currency, method, tag } = this.state;
     return (
