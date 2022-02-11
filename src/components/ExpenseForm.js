@@ -124,9 +124,9 @@ class ExpenseForm extends react.Component {
               name="tag"
               onChange={ this.handleChange }
             >
-              {tags.map((curr) => (
-                <option value={ curr } key={ curr }>
-                  { curr}
+              {tags.map((tagg) => (
+                <option value={ tagg } key={ tagg }>
+                  { tagg}
                 </option>
               ))}
             </select>
