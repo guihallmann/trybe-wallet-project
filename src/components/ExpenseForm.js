@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExpense, fetchCurrencies } from '../actions';
 
+const FOOD = 'Alimentação';
+
 class ExpenseForm extends react.Component {
   constructor() {
     super();
@@ -10,9 +12,9 @@ class ExpenseForm extends react.Component {
       id: 0,
       value: '',
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: FOOD,
       exchangeRates: {},
     };
   }
@@ -31,6 +33,7 @@ class ExpenseForm extends react.Component {
 
   handleClick = (e) => {
     e.preventDefault();
+    fetch('https://economia.awesomeapi.com.br/json/all');
     const { currenciesList, expense } = this.props;
     const { id, value, description, currency, method, tag } = this.state;
     expense({
@@ -48,14 +51,14 @@ class ExpenseForm extends react.Component {
       description: '',
       currency: 'USD',
       method: 'Dinheiro',
-      tag: 'Alimentação',
+      tag: FOOD,
       exchangeRates: {},
     });
   }
 
   render() {
     const pagamentos = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
-    const tags = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
+    const tags = [FOOD, 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
     const { currenciesList } = this.props;
     const keys = Object.keys(currenciesList).filter((curr) => curr !== 'USDT');
     const { value, description, currency, method, tag } = this.state;
@@ -90,10 +93,11 @@ class ExpenseForm extends react.Component {
               data-testid="currency-input"
               value={ currency }
               name="currency"
+              id="currency"
               onChange={ this.handleChange }
             >
               {keys.map((curr) => (
-                <option value={ curr } key={ curr }>
+                <option data-testid={ curr } value={ curr } key={ curr }>
                   { curr }
                 </option>
               ))}
@@ -106,6 +110,7 @@ class ExpenseForm extends react.Component {
               value={ method }
               data-testid="method-input"
               name="method"
+              id="method"
               onChange={ this.handleChange }
             >
               {pagamentos.map((pay) => (
@@ -122,6 +127,7 @@ class ExpenseForm extends react.Component {
               value={ tag }
               data-testid="tag-input"
               name="tag"
+              id="tag"
               onChange={ this.handleChange }
             >
               {tags.map((tagg) => (
