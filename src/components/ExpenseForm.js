@@ -86,9 +86,14 @@ class ExpenseForm extends react.Component {
 
           <label htmlFor="currency">
             Moeda:
-            <select value={ currency } name="currency" onChange={ this.handleChange }>
+            <select
+              data-testid="currency-input"
+              value={ currency }
+              name="currency"
+              onChange={ this.handleChange }
+            >
               {keys.map((curr) => (
-                <option data-testid={ curr } value={ curr } key={ curr }>
+                <option value={ curr } key={ curr }>
                   { curr }
                 </option>
               ))}
