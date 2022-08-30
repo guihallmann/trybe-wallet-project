@@ -1,0 +1,41 @@
+.expense-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 2vw;
+}
+
+.expense-table td {
+  border: 1px solid #E1E5EB;
+  padding: 15px;
+  color: #7E01F4;
+  width: 10vw;
+}
+.expense-table th {
+  padding: 15px;
+  border: 1px solid #E1E5EB;
+  width: 10vw;
+}
+
+.expense-table thead {
+  background-color: #CCA0F5;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.table-btn {
+  margin: 2px;
+  padding: 6px 3px;
+  width: 3vw;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background-color: #7E01F4;
+}
+
+

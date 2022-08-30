@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import '../styles/header.css';
 
 class Header extends Component {
   // Função feita com auxílio do Fadiga, Ruy e Petzinger
@@ -16,13 +17,13 @@ class Header extends Component {
   render() {
     const { email } = this.props;
     return (
-      <header>
+      <header className="header">
         <section className="header-logo">
-          <h2>My wallet</h2>
+          <h1>Trybe Wallet</h1>
         </section>
         <section className="header-info">
           <span data-testid="email-field">{ email }</span>
-          <span data-testid="total-field">{this.totalExpenses().toFixed(2)}</span>
+          <span data-testid="total-field">{`R$ ${this.totalExpenses().toFixed(2)}`}</span>
           <span data-testid="header-currency-field">BRL</span>
         </section>
       </header>

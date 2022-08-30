@@ -2,6 +2,7 @@ import React, * as react from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExpense, fetchCurrencies } from '../actions';
+import '../styles/expense.css';
 
 const FOOD = 'Alimentação';
 
@@ -70,6 +71,8 @@ class ExpenseForm extends react.Component {
             <input
               type="text"
               data-testid="value-input"
+              className="value-input"
+              id="value"
               name="value"
               value={ value }
               onChange={ this.handleChange }
@@ -82,6 +85,8 @@ class ExpenseForm extends react.Component {
               type="text"
               data-testid="description-input"
               name="description"
+              id="description"
+              className="description-input"
               value={ description }
               onChange={ this.handleChange }
             />
@@ -94,6 +99,7 @@ class ExpenseForm extends react.Component {
               value={ currency }
               name="currency"
               id="currency"
+              className="expense-select"
               onChange={ this.handleChange }
             >
               {keys.map((curr) => (
@@ -111,6 +117,7 @@ class ExpenseForm extends react.Component {
               data-testid="method-input"
               name="method"
               id="method"
+              className="expense-select"
               onChange={ this.handleChange }
             >
               {pagamentos.map((pay) => (
@@ -128,6 +135,7 @@ class ExpenseForm extends react.Component {
               data-testid="tag-input"
               name="tag"
               id="tag"
+              className="expense-select"
               onChange={ this.handleChange }
             >
               {tags.map((tagg) => (
@@ -139,6 +147,7 @@ class ExpenseForm extends react.Component {
           </label>
           <button
             type="submit"
+            className="expense-btn"
             onClick={ this.handleClick }
           >
             Adicionar despesa

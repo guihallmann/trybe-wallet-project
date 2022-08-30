@@ -2,6 +2,7 @@ import React, * as react from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { removeExpense } from '../actions';
+import '../styles/table.css';
 
 class ExpenseTable extends react.Component {
   render() {
@@ -12,10 +13,10 @@ class ExpenseTable extends react.Component {
           <tr>
             <th>Descrição</th>
             <th>Tag</th>
-            <th>Método de pagamento</th>
+            <th>Pagamento</th>
             <th>Valor</th>
             <th>Moeda</th>
-            <th>Câmbio utilizado</th>
+            <th>Câmbio</th>
             <th>Valor convertido</th>
             <th>Moeda de conversão</th>
             <th>Editar/Excluir</th>
@@ -40,12 +41,14 @@ class ExpenseTable extends react.Component {
               <td>
                 <button
                   type="button"
+                  className="table-btn"
                 >
                   Editar
                 </button>
                 <button
                   type="button"
                   data-testid="delete-btn"
+                  className="table-btn"
                   onClick={ () => deleteExpense(exp) }
                 >
                   Excluir

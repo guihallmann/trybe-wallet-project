@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { actionSubmitLogin } from '../actions';
+import '../styles/login.css';
 
 class Login extends Component {
   constructor() {
@@ -41,14 +42,15 @@ class Login extends Component {
     const PW_MIN_SIZE = 6;
     const MAIL_CHECK_STATUS = this.handleEmailRegex(email);
     return (
-      <div data-testid="page-login">
-        <form>
+      <div className="login-page" data-testid="page-login">
+        <form className="login-form">
           <label htmlFor="email">
             Email:
             <input
               type="text"
               id="email"
               name="email"
+              className="login-input"
               data-testid="email-input"
               value={ email }
               onChange={ this.handleChange }
@@ -60,6 +62,7 @@ class Login extends Component {
               type="password"
               id="password"
               name="password"
+              className="login-input"
               data-testid="password-input"
               value={ password }
               onChange={ this.handleChange }
@@ -67,6 +70,7 @@ class Login extends Component {
           </label>
           <button
             type="submit"
+            className="login-btn"
             data-testid="login-submit-button"
             disabled={ !(password.length >= PW_MIN_SIZE && MAIL_CHECK_STATUS) }
             onClick={ this.handleClick }
